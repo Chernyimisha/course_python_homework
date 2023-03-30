@@ -13,6 +13,7 @@
 # заданной во входном файле грядки.
 # 4 -> 1 2 3 4
 # 9
+
 import random
 n = int(input('Задайте число кустов: '))
 list_1 = [random.randint(3, 15) for i in range(n)]
