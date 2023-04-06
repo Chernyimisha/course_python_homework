@@ -5,25 +5,28 @@
 # Т.е. сгруппировать слова по "общим буквам".
 
 
-def grouping_list(list_string):
-    new_list = []
-    temp_list = []
-    temp_element = set(list_string[0])
-    while len(list_string) > 0:
-        for i in range(len(list_string)):
-            if set(list_string[i]) == temp_element:
-                temp_list.append(list_string[i])
-                del list_string[i]
-        temp_element = set(list_string[0])
-        new_list.append(temp_list)
-        temp_list.clear()
-        print(list_string)
-    return new_list
+def group_anagrams(words):
+    anagram_dict = {}
+    for word in words:
+        sorted_word = "".join(sorted(word))
+        # print(sorted_word)
+        if sorted_word not in anagram_dict:
+            anagram_dict[sorted_word] = [word]
+        else:
+            anagram_dict[sorted_word].append(word)
+            print(anagram_dict)
+    # print(anagram_dict)
+    return list(anagram_dict.values())
 
 
 input_list = ["eat", "tea", "tan", "ate", "nat", "bat"]
-input_list_group = grouping_list(input_list)
+input_list_group = group_anagrams(input_list)
 
-print(input_list_group)
+# print(input_list_group)
 
+
+# details = {"Destination": "China",
+#            "Nstionality": "Italian"}
+# details["Age"] = [20, "Twenty"]
+# print(details)
 
