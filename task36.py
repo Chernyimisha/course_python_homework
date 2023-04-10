@@ -18,12 +18,15 @@
 def print_operation_table(operation, num_rows, num_columns):
     for i in range(1, num_rows + 1):
         for j in range(1, num_columns + 1):
-            if j < num_columns:
-                print(operation(i, j), end=' ')
+            if i != 1 and j != 1:
+                print(operation(i, j), end='\t')
+            elif i == 1:
+                print(j, end='\t')
             else:
-                print(operation(i, j))
+                print(i, end='\t')
+        print()
 
 
 rows = int(input('Введите количество строк: '))
 columns = int(input('Введите количество столбцов: '))
-print_operation_table(lambda x, y: x * y, rows, columns)
+print_operation_table(lambda x, y: x + y, rows, columns)

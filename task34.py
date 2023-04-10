@@ -12,19 +12,29 @@
 new_str = input('Введите стихотворение Винни-Пуха: ')
 
 
-def ritm_check(str_words):
-    words_list = str_words.split()
-    tem_list = []
-    for word in words_list:
-        sum = 0
-        for i in word:
-            if i in 'аеёиоуыэюя':
-                sum += 1
-        tem_list.append(sum)
-    return len(tem_list) == tem_list.count(tem_list[0])
+# def rithm_check(str_words):
+#     words_list = str_words.split()
+#     temp_list = []
+#     for word in words_list:
+#         sum = 0
+#         for i in word:
+#             if i in 'аеёиоуыэюя':
+#                 sum += 1
+#         temp_list.append(sum)
+#     return len(temp_list) == temp_list.count(temp_list[0])
+#
+#
+# if rithm_check(new_str):
+#     print('Парам пам-пам')
+# else:
+#     print('Пам парам')
+
+def rithm_check(str_words: str) -> str:
+    str_words = str_words.lower().split()
+    vovels = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я']
+    if len(set(map(lambda x: len([i for i in x if i in vovels]), str_words))) == 1:
+        return 'Парам пам-пам'
+    return 'Пам парам'
 
 
-if ritm_check(new_str):
-    print('Парам пам-пам')
-else:
-    print('Пам парам')
+print(rithm_check(new_str))
